@@ -1,8 +1,8 @@
 ![](images/usb-2-10-100m-ethernet-adapter-9700.jpg)
 
-## Installation of "USB 2.0 10/100M Ethernet Adapter" (model QTS1081B 9700) (Corechip RD9700) in Apple macOS High Sierra
+## Installation of "USB 2.0 10/100M Ethernet Adapter" (model QTS1081B 9700) (Corechip RD9700 / KY-RD9700) in Apple macOS Catalina 10.15
 
-Installation guide for an inexpensive ($2 on eBay, shipped) unbranded "USB 2.0 10/100M Ethernet Adapter" model QTS1081B 9700 (RD9700 chip by [Corechip](http://www.corechip-sz.com/)) in Apple macOS High Sierra (10.13.6) (tested in 2017 Macbook Air). Included driver files were provided on the installation CD included with the adapter.
+Installation guide for an inexpensive ($2 on eBay, shipped) unbranded "USB 2.0 10/100M Ethernet Adapter" model QTS1081B 9700 (RD9700 chip by [Corechip](http://www.corechip-sz.com/)) in Apple macOS Catalina (10.15.4) (tested in 2019 Macbook Pro). Included driver files were provided on the installation CD included with the adapter.
 
 Please help saving beautiful minds by turning off WiFi microwave radios.
 
@@ -15,7 +15,13 @@ From the menu bar, select "**Utilities**" and then “**Terminal**”. <br>
 In the terminal, type: ```csrutil disable```, press Return. <br>
 From the menu bar, select "****" (Apple symbol), then "**Restart**". <br>
 
-### 2) Installing driver
+### 2) Disable read only system volume
+
+Boot Mac OS normally <br>
+Open a terminal and mount system volume as writable by executing ```sudo mount -uw /``` <br>
+Next execute ```killall Finder``` to close all Finders <br>
+
+### 3) Installing driver
 
 Execute file "**RD9700  Mac OS 10.10 Driver.pkg**" from the directory "**RD9700Driver/MAC DRIVER**", by double clicking on it. <br>
 Installer window will appear. <br>
@@ -24,7 +30,7 @@ Once installation application has finished, the application window should state:
 Click on "**Close**". <br>
 Kernel extension files should have been copied to directory "**/System/Library/Extensions/RD9700.kext**". <br>
 
-### 3) Enabling SIP (System Integrity Protection)
+### 4) Enabling SIP (System Integrity Protection)
 
 From the menu bar, select "****" (Apple symbol), then "**Restart**". <br>
 As soon as the screen becomes black, hold down "**Command**" and "**R**" until the Apple logo and a progress bar appear. <br>
@@ -33,7 +39,7 @@ From the menu bar, select "**Utilities**" and then “**Terminal**”. <br>
 In the terminal, type: ```csrutil enable```, press Return key. <br>
 From the menu bar, select "****" (Apple symbol), then "**Restart**". <br>
 
-### 4) Verifying adapter is recognized by the system (optional step)
+### 5) Verifying adapter is recognized by the system (optional step)
 
 From the menu bar, select "****", select "**About This Mac**" -> click "**System Report**" -> select "**Hardware**" -> select "**USB**" -> select "**USB 3.0 Bus**" -> select "**USB 2.0 10/100M Ethernet Adaptor**". <br>
 An example of a configuration:
@@ -51,7 +57,7 @@ An example of a configuration:
 
 ![](images/01.png)
 
-### 5) Adding network interface
+### 6) Adding network interface
 
 NOTE: The USB adapter will not show up in the list of network interfaces if it is not plugged in the USB port (it's not relevant, if the ethernet cable is plugged in or if it is "live").<br>
 
